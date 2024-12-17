@@ -1,7 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 import PublicRoute from './PublicRoute';
-import { UsersView } from '../views/LoginView/Users/UsersView';
+import { UsersView } from '../views/Users/UsersView';
+import Layout from '../components/layout/Layout';
 
 export const router = createBrowserRouter([
   {
@@ -21,7 +22,8 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <UsersView/>,
+
+        element: <Layout children={<UsersView/>}/>,
       },
     ],
   },
