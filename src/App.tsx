@@ -1,10 +1,9 @@
 import "./App.css";
-import { TestComponent } from "./components/TestComponent";
 
 function App() {
   return (
     <>
-      <TestComponent />
+      <h2>Raffle-BO</h2>
     </>
   );
 }
