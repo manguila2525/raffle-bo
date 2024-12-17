@@ -12,7 +12,7 @@ const ProtectedRoute: React.FC = () => {
 
   const { auth } = userContext;
 
-  return auth === true ? <Outlet /> : <Navigate to="/" replace />;
+  return auth === true ? <Outlet  /> : <Navigate to="/" replace />;
 };
 
 export default ProtectedRoute;

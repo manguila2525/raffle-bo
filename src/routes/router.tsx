@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 import PublicRoute from './PublicRoute';
+import Layout from '../components/layout/Layout';
 
 export const router = createBrowserRouter([
   {
@@ -20,7 +21,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <div>Dashboard</div>,
+        element: <Layout children={<div>Dashboard</div>}/>,
       },
     ],
   },
