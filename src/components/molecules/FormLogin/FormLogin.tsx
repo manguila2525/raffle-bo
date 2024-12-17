@@ -20,24 +20,19 @@ const FormLogin: React.FC<FormLoginProps> = ({ onSubmit }) => {
       <AppInput
         label="Nombre de Usuario"
         value={username}
-        onChange={(e: { target: { value: React.SetStateAction<string> } }) =>
-          setUsername(e.target.value)
-        }
+        onChange={(e) => setUsername(e.target.value)}
         placeholder="Ingresa tu usuario"
       />
       <AppInput
         label="Contraseña"
         type="password"
         value={password}
-        onChange={(e: { target: { value: React.SetStateAction<string> } }) =>
-          setPassword(e.target.value)
-        }
+        onChange={(e) => setPassword(e.target.value)}
         placeholder="Ingresa tu contraseña"
       />
       <AppButton
         title="Iniciar Sesión"
         className="bg-blue-500 hover:bg-blue-700"
-        onClick={() => console.log("Botón presionado")}
       />
     </form>
   );

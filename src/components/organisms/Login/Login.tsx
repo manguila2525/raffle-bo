@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
 import FormLogin from "../../molecules/FormLogin/FormLogin";
+import { UserContext } from "../../../context/UserContext";
 
 const Login: React.FC = () => {
-  const handleLogin = (credentials: { username: string; password: string }) => {
-    console.log("Credenciales enviadas:", credentials);
+  const { setAuth, setUsername } = useContext(UserContext)!;
+
+  const handleLogin = ({
+    username,
+    password,
+  }: {
+    username: string;
+    password: string;
+  }) => {
+    // Establecer el usuario y contraseña de prueba
+    const validUsername = "admin";
+    const validPassword = "password123";
+
+    // Validar las credenciales
+    if (username === validUsername && password === validPassword) {
+      setAuth(true); // Cambiar el estado de autenticación
+      setUsername(username); // Guardar el nombre de usuario en el contexto
+      alert("Login successful!");
+    } else {
+      alert("Invalid credentials");
+    }
   };
 
   return (
