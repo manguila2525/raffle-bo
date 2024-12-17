@@ -5,8 +5,14 @@ export default {
     join(__dirname, './src/**/*.{js,ts,jsx,tsx}'),
     join(__dirname, './index.html'),
   ],
-  theme: {
-    extend: {},
+ theme: {
+    extend: {
+      colors: {
+        black: '#000', 
+        white: '#fff',
+       
+      },
+    },
   },
   plugins: [],
 };

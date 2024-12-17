@@ -1,4 +1,4 @@
-import { Users } from "../../organisms/Login/Users/Users"
+import { Users } from "../organisms/Users/Users"
 
 export const UsersTemplate =()=>{
     return <>
