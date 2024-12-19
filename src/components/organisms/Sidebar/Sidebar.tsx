@@ -6,7 +6,7 @@ export function Sidebar() {
         <h1 className="text-2xl font-bold m-0">Raffle Dashboard</h1>
       </div>
       <nav className="mt-6">
-        {sidebarItems.map(item => <a href={item.url} className="block px-6 py-3 hover:bg-gray-100">
+        {sidebarItems.map(item => <a key={item.name} href={item.url} className="block px-6 py-3 hover:bg-gray-100">
           {item.icon}
           {item.name}
         </a>)}

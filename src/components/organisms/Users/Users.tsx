@@ -1,16 +1,8 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AppModal } from "../../atoms/AppModal/AppModal";
 import { TableUsers } from "../../molecules/TableUsers/TableUsers";
-
-interface User {
-    id: number;
-    firstName: string;
-    lastName: string;
-    email: string;
-    phoneNumber: string;
-    tickets: Ticket[];
-}
+import { getUsers } from "../../../services/userServices";
 
 interface Ticket {
     id: number;
@@ -21,68 +13,20 @@ interface Ticket {
     prize?: string;
     drawDate?: string;
 }
-
+export interface User {
+  email: string
+  id: string
+  lastName: string
+  name: string
+  phone: string
+  tickets: Ticket[]
+}
 export const Users = () => {
     
 
-  
+
   const [isModalOpen, setIsModalOpen] = useState(false);
-    const [users, setUsers] = useState<User[]>([
-        {
-            id: 1,
-            firstName: "Juan",
-            lastName: "Pérez",
-            email: "juan.perez@example.com",
-            phoneNumber: "+1234567890",
-            tickets: [
-                {
-                    id: 1,
-                    purchaseDate: "2023-01-01",
-                    paymentStatus: "Paid",
-                    ticketStatus: "Active",
-                    winnerStatus: "Not Winner",
-                    prize: "$1000",
-                    drawDate: "2023-06-30"
-                },
-                {
-                    id: 2,
-                    purchaseDate: "2023-02-15",
-                    paymentStatus: "Pending",
-                    ticketStatus: "Active",
-                    winnerStatus: "Not Winner",
-                    prize: undefined,
-                    drawDate: undefined
-                } 
-            ] 
-        },
-        {
-            id: 2,
-            firstName: "Maria",
-            lastName: "Pérez",
-            email: "juan.perez@example.com",
-            phoneNumber: "+1234567890",
-            tickets: [
-                {
-                    id: 1,
-                    purchaseDate: "2023-01-01",
-                    paymentStatus: "Paid",
-                    ticketStatus: "Active",
-                    winnerStatus: "Not Winner",
-                    prize: "$2000",
-                    drawDate: "2023-06-30"
-                },
-                {
-                    id: 2,
-                    purchaseDate: "2023-02-15",
-                    paymentStatus: "Pending",
-                    ticketStatus: "Active",
-                    winnerStatus: "Not Winner",
-                    prize: undefined,
-                    drawDate: undefined
-                } 
-            ] 
-        } 
-    ]);
+    const [users, setUsers] = useState<User[]>([]);
     const [dataSelected, setDataSelected] = useState<User | null>(null);
     const handleOpenModal = (data:User) => {
         setIsModalOpen(true);
@@ -96,7 +40,14 @@ export const Users = () => {
         setIsModalOpen(false);
       };
 
-
+      useEffect(() => {
+        getUsers().then(res =>  {
+        const newData =  res.map((data)  => {
+            return {...data, tickets:[]}
+          })
+          setUsers(newData)
+        }).catch(() => setUsers([]))
+      }, []);
     return (
         <div className="container mx-auto px-4 py-10">
         <div className="overflow-x-auto">

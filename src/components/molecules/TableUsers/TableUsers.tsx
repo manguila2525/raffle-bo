@@ -1,13 +1,13 @@
 
 import { AppButton } from '../../atoms/AppButton/AppButton';
-interface User {
-    id: number;
-    firstName: string;
-    lastName: string;
-    email: string;
-    phoneNumber: string;
-    tickets: Ticket[];
-}
+export interface User {
+    email: string
+    id: string
+    lastName: string
+    name: string
+    phone: string
+    tickets: Ticket[]
+  }
 interface Ticket {
     id: number;
     purchaseDate: string;
@@ -38,10 +38,10 @@ export const TableUsers = ({users,handleModal}:Props) => {
               <tbody>
                 {users.map((user) => (
                   <tr key={user.id} className="border-b border-gray-200">
-                    <td className="px-4 py-2">{user.firstName}</td>
+                    <td className="px-4 py-2">{user.name}</td>
                     <td className="px-4 py-2">{user.lastName}</td>
                     <td className="px-4 py-2">{user.email}</td>
-                    <td className="px-4 py-2">{user.phoneNumber}</td>
+                    <td className="px-4 py-2">{user.phone}</td>
                     <td className="px-4 py-2">{user.tickets.length}</td>
                     <td className="px-4 py-2">
                       <div className="relative inline-block text-left">
