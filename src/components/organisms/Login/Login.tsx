@@ -12,14 +12,12 @@ const Login: React.FC = () => {
     username: string;
     password: string;
   }) => {
-    // Establecer el usuario y contraseña de prueba
     const validUsername = "admin";
     const validPassword = "password123";
 
-    // Validar las credenciales
     if (username === validUsername && password === validPassword) {
-      setAuth(true); // Cambiar el estado de autenticación
-      setUsername(username); // Guardar el nombre de usuario en el contexto
+      setAuth(true);
+      setUsername(username);
       alert("Login successful!");
     } else {
       alert("Invalid credentials");
