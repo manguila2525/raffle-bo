@@ -16,7 +16,7 @@ const FormLogin: React.FC<FormLoginProps> = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+    <form onSubmit={handleSubmit} className=" flex flex-col gap-6">
       <AppInput
         label="Nombre de Usuario"
         value={username}
@@ -30,10 +30,7 @@ const FormLogin: React.FC<FormLoginProps> = ({ onSubmit }) => {
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Ingresa tu contraseña"
       />
-      <AppButton
-        title="Iniciar Sesión"
-        className="bg-blue-500 hover:bg-blue-700"
-      />
+      <AppButton title="Iniciar Sesión" />
     </form>
   );
 };

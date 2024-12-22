@@ -27,8 +27,11 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="login-container p-4 max-w-sm mx-auto bg-white rounded shadow">
-      <h2 className="text-center text-2xl font-bold mb-4">Iniciar Sesión</h2>
+    <div className="w-full max-w-md flex flex-col gap-4 bg-white shadow-md rounded p-8">
+      <h2 className="text-start text-2xl font-bold">Iniciar Sesión</h2>
+      <p className="text-start">
+        Ingresa tus credenciales para acceder a tu cuenta
+      </p>
       <FormLogin onSubmit={handleLogin} />
     </div>
   );

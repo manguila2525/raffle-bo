@@ -15,13 +15,14 @@ const AppInput: React.FC<AppInputProps> = ({
   type = "text",
   placeholder = "",
 }) => (
-  <div>
-    <label>{label}</label>
+  <div className="flex flex-col space-y-1.5">
+    <label className="font-semibold text-sm">{label}</label>
     <input
       type={type}
       value={value}
       onChange={onChange}
       placeholder={placeholder}
+      className=" appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
     />
   </div>
 );

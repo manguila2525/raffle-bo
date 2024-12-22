@@ -23,7 +23,6 @@ interface Ticket {
 }
 
 export const Users = () => {
-    
 
   
   const [isModalOpen, setIsModalOpen] = useState(false);
