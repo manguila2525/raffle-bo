@@ -1,3 +1,8 @@
-export function LoginView() {
-  return <h2>LoginView is working</h2>;
-}
+import React from "react";
+import LoginTemplate from "../../components/templates/LoginTemplate/LoginTemplate";
+
+const LoginView: React.FC = () => {
+  return <LoginTemplate />;
+};
+
+export default LoginView;

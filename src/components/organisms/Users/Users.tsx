@@ -22,7 +22,6 @@ export interface User {
   tickets: Ticket[]
 }
 export const Users = () => {
-    
 
 
   const [isModalOpen, setIsModalOpen] = useState(false);
