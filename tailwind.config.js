@@ -2,8 +2,8 @@ import { join } from 'path';
 
 export default {
   content: [
-    join(__dirname, './src/**/*.{js,ts,jsx,tsx}'),
-    join(__dirname, './index.html'),
+    join('./src/**/*.{js,ts,jsx,tsx}'),
+    join('./index.html'),
   ],
  theme: {
     extend: {
