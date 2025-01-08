@@ -6,17 +6,17 @@ export interface User {
     lastName: string
     name: string
     phone: string
-    tickets: Ticket[]
+    unverifiedTicketsCount: number
   }
-interface Ticket {
-    id: number;
-    purchaseDate: string;
-    paymentStatus: 'Paid' | 'Pending';
-    ticketStatus: 'Active' | 'Inactive';
-    winnerStatus: 'Winner' | 'Not Winner';
-    prize?: string;
-    drawDate?: string;
-}
+// interface Ticket {
+//     id: number;
+//     purchaseDate: string;
+//     paymentStatus: 'Paid' | 'Pending';
+//     ticketStatus: 'Active' | 'Inactive';
+//     winnerStatus: 'Winner' | 'Not Winner';
+//     prize?: string;
+//     drawDate?: string;
+// }
 
 interface Props {
     users:User[],
@@ -42,7 +42,7 @@ export const TableUsers = ({users,handleModal}:Props) => {
                     <td className="px-4 py-2">{user.lastName}</td>
                     <td className="px-4 py-2">{user.email}</td>
                     <td className="px-4 py-2">{user.phone}</td>
-                    <td className="px-4 py-2">{user.tickets.length}</td>
+                    <td className="px-4 py-2">{user.unverifiedTicketsCount}</td>
                     <td className="px-4 py-2">
                       <div className="relative inline-block text-left">
                         
