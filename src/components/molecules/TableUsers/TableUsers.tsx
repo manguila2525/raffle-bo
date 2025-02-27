@@ -28,7 +28,7 @@ export const TableUsers = ({users,handleModal}:Props) => {
               <thead className="bg-gray-200">
                 <tr>
                   <th className="px-4 py-2 text-left">Nombre</th>
-                  <th className="px-4 py-2 text-left">APELLIDO</th>
+                  <th className="px-4 py-2 text-left">Apellido</th>
                   <th className="px-4 py-2 text-left">Email</th>
                   <th className="px-4 py-2 text-left">Número de teléfono</th>
                   <th className="px-4 py-2 text-left">Tickets comprados</th>
@@ -39,9 +39,9 @@ export const TableUsers = ({users,handleModal}:Props) => {
                 {users.map((user) => (
                   <tr key={user.id} className="border-b border-gray-200">
                     <td className="px-4 py-2">{user.name}</td>
-                    <td className="px-4 py-2">{user.lastName}</td>
+                    <td className="px-4 py-2">{user.lastName ? user.lastName : '-'}</td>
                     <td className="px-4 py-2">{user.email}</td>
-                    <td className="px-4 py-2">{user.phone}</td>
+                    <td className="px-4 py-2">{user.phone ? user.phone : '-'}</td>
                     <td className="px-4 py-2">{user.tickets.length}</td>
                     <td className="px-4 py-2">
                       <div className="relative inline-block text-left">

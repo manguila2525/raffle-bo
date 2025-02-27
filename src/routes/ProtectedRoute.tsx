@@ -1,18 +1,14 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { useContext } from 'react';
-import { UserContext } from "../context/UserContext";
+import {  useMemo } from 'react';
+import Layout from '../components/layout/Layout';
+import { useAuth } from '../hooks/useAuth';
 
 const ProtectedRoute: React.FC = () => {
-  const userContext = useContext(UserContext);
+  const {token} = useAuth()
+  return useMemo(() => {
+    return token ? <Layout><Outlet /></Layout> : <Navigate to="/" replace />;
+  }, [token]);
 
-  // Verificar si el contexto está disponible
-  if (!userContext) {
-    throw new Error("ProtectedRoute must be used within a UserProvider");
-  }
-
-  const { auth } = userContext;
-
-  return auth === true ? <Outlet  /> : <Navigate to="/" replace />;
 };
 
 export default ProtectedRoute;

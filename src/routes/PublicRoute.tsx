@@ -1,18 +1,12 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { useContext } from 'react';
-import { UserContext } from '../context/UserContext';
+import { useMemo } from 'react';
+import { useAuth } from '../hooks/useAuth';
 
 const PublicRoute: React.FC = () => {
-  const userContext = useContext(UserContext);
-
-  // Verificar si el contexto está disponible
-  if (!userContext) {
-    throw new Error('PublicRoute must be used within a UserProvider');
-  }
-
-  const { auth } = userContext;
-
-  return auth === false ? <Outlet /> : <Navigate to="/dashboard" replace />;
+  const {token} = useAuth()
+  return useMemo(() => {
+    return token ? <Navigate to="/dashboard" replace /> : <Outlet /> ;
+  }, [token]);
 };
 
 export default PublicRoute;

@@ -2,8 +2,9 @@ import { createBrowserRouter } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 import PublicRoute from './PublicRoute';
 import { UsersView } from '../views/Users/UsersView';
-import Layout from '../components/layout/Layout';
-
+import { RafflesView } from '../views/RafflesView/RafflesView';
+import {LoginView} from '../views/LoginView/LoginView'
+import {RaffleCreateView} from '../views/RaffleCreateView/RaffleCreateView'
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -11,20 +12,36 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <div>Login</div>, 
+        element: <LoginView/>, 
       },
     ],
     errorElement: <></>,
   },
   {
-    path: 'dashboard',
+    path: '/dashboard',
     element: <ProtectedRoute />,
     children: [
       {
-        index: true,
-
-        element: <Layout children={<UsersView/>}/>,
+        index:true,
+        element:<UsersView/>,
       },
+      {
+        path:'users',
+        element:<UsersView/>,
+      },
+      {
+        path:'raffles',
+        children: [
+          {
+            index:true,
+            element:<RafflesView/>,
+          },
+          {
+            path:'create-raffle',
+            element:<RaffleCreateView/>
+          }
+        ]
+      }
     ],
   },
 ]);

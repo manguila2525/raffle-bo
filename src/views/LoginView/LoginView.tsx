@@ -1,3 +1,7 @@
+import LoginForm from "../../components/organisms/Login/Login";
+
 export function LoginView() {
-  return <h2>LoginView is working</h2>;
+  return <main className="flex min-h-screen items-center justify-center p-4">
+  <LoginForm />
+</main>;
 }
